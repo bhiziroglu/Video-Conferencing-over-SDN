@@ -46,7 +46,14 @@ They can be found in their respective folders in the repository.
 * Floodlight Module
 
   A sample tutorial page is available [here](https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller/pages/1343513/How+to+Write+a+Module) explaning the addition of external modules into Floodlight Project.
-  Two java files in Floodlight-Module folder should be installed in the same module in Floodlight.
+  All java files in Floodlight-Module folder should be installed in the same module in Floodlight.
+  
+  Routable service opens a route in the SDN controller. By default, TEM sends requests to /wm/session/desc path.
+  
+  SignalingServerRestApi service listens for HTTP requests from TEM. It also parses the incoming requests and sends them to Queue Pusher Service. It also updates the flow charts of the switches according to the path received from TEM.
+  
+  SDNSlicing service gets the parsed switch ID / port ID pairs from SignalingServerRestApi service and opens queues for the paths.
+  
   
 * Mininet Topologies
   
